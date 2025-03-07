@@ -42,13 +42,9 @@ mi_proyecto/
    python -m venv venv
    source venv/bin/activate  # En Windows: venv\Scripts\activate
    ```
-3. **Instalar dependencias:**
+3. **Ejecutar la aplicación:**
    ```sh
-   pip install -r requirements.txt
-   ```
-4. **Ejecutar la aplicación:**
-   ```sh
-   python app.py
+   python main.py
    ```
 5. **Abrir en el navegador:**
    ```
