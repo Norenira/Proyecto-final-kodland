@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Ambiental</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Blog Ambiental</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                <li><a href="{{ url_for('products') }}">Productos</a></li>
+                <li><a href="{{ url_for('challenges') }}">Retos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="blog">
+            <h2>Artículos sobre el medio ambiente</h2>
+            <div class="blog-container">
+                {% for articulo in articulos %}
+                <article class="blog-card">
+                    <img src="{{ articulo.imagen }}" alt="Imagen del artículo {{ articulo.titulo }}" class="blog-image">
+                    <h3>{{ articulo.titulo }}</h3>
+                    <p>{{ articulo.descripcion }}</p>
+                    <a href="{{ articulo.url }}" target="_blank" class="btn">Leer más</a>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+    

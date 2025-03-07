@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impactoverde - Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a GreenImpact</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('products') }}">Productos</a></li>
+                <li><a href="{{ url_for('challenges') }}">Retos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Únete a la revolución ecológica</h2>
+            <p>Descubre cómo reducir tu impacto ambiental con nuestras herramientas interactivas.</p>
+            <a href="{{ url_for('calculator') }}" class="btn">Calcular mi huella de carbono</a>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h3>Calcula tu impacto</h3>
+                <p>Usa nuestra calculadora de huella de carbono para conocer y reducir tu consumo.</p>
+                <a href="{{ url_for('calculator') }}" class="btn">Ir a Calculadora</a>
+            </div>
+            <div class="feature">
+                <h3>Explora nuestro Blog</h3>
+                <p>Lee artículos sobre sostenibilidad y aprende nuevas formas de ayudar al planeta.</p>
+                <a href="{{ url_for('blog') }}" class="btn">Ir al Blog</a>
+            </div>
+            <div class="feature">
+                <h3>Descubre productos ecológicos</h3>
+                <p>Encuentra alternativas sostenibles para tu vida diaria.</p>
+                <a href="{{ url_for('products') }}" class="btn">Ver Productos</a>
+            </div>
+            <div class="feature">
+                <h3>Participa en Retos</h3>
+                <p>Únete a desafíos ecológicos y gana recompensas.</p>
+                <a href="{{ url_for('challenges') }}" class="btn">Ver Retos</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

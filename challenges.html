@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafíos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Desafíos Semanales</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('products') }}">Productos</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="challenges-container">
+        {% for desafio in desafios %}
+        <div class="desafio">
+            <h3>{{ desafio.titulo }}</h3> 
+            <p>{{ desafio.descripcion }}</p>
+            <div class="days-tracker">
+                {% for i in range(1, 8) %}
+                    <input type="checkbox" id="day-{{ desafio.titulo|replace(' ', '_') }}-{{ loop.index0 }}" class="day-checkbox">
+                    <label for="day-{{ desafio.titulo|replace(' ', '_') }}-{{ loop.index0 }}" class="day-label">Día {{ i }}</label>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    
+    </main>
+</body>
+</html>

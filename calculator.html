@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Huella de Carbono</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Huella de Carbono</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('products') }}">Productos</a></li>
+                <li><a href="{{ url_for('challenges') }}">Retos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="calculator">
+            <h2 class="center-text">Ingresa lo que consumes para calcular tu huella</h2>
+            <form action="{{ url_for('calculator') }}" method="post" class="form-container">
+                <div class="input-group">
+                    <label for="transporte">Consumo de transporte (km/mes):</label>
+                    <input type="number" name="transporte" id="transporte" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="energia">Consumo energetico (kWh/mes):</label>
+                    <input type="number" name="energia" id="energia" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="dieta">Consumo alimenticio (kg carne/semana):</label>
+                    <input type="number" name="dieta" id="dieta" required>
+                </div>
+                
+                <button type="submit" class="btn">Calcular</button>
+            </form>
+            
+            {% if huella is not none %}
+                <div class="result">
+                    <h3>Tu huella de carbono estimada es: {{ huella }} kg CO₂</h3>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Ecológicos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Productos Ecológicos</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('calculator') }}">Calculadora</a></li>
+                <li><a href="{{ url_for('challenges') }}">Desafíos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-list">
+        <div class="products-container">
+            {% for producto in productos %}
+            <article class="product-item">
+                {% if producto.imagen %}
+                    <img src="{{ producto.imagen }}" alt="Imagen de {{ producto.titulo }}" class="product-image">
+                {% endif %}
+                <div class="product-details">
+                    <div class="product-text">
+                        <h2 class="product-title">{{ producto.titulo }}</h2>
+                        <p class="product-description">{{ producto.descripcion }}</p>
+                    </div>
+                    <a href="{{ producto.url }}" target="_blank" class="product-link">Ver más</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
